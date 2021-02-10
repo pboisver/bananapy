@@ -1,3 +1,14 @@
 # Run a test server.
-from app import app
-app.run(debug=True)
+import logging
+
+from app import baz
+
+import os
+
+LOGLEVEL = os.environ.get('LOGLEVEL', 'WARNING').upper()
+logging.basicConfig(level=LOGLEVEL)
+
+
+logging.info('Starting from app.baz.py')
+
+baz.bong.run(debug=True)

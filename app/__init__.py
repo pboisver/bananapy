@@ -1,16 +1,9 @@
-from flask import Flask
+# what do you want to do when `FLASK_APP=app flask run` loads the package `app`
+import logging
+from app.baz import bong
 
-from app.foo import bar
-
-app = Flask(__name__)
-
-
-@app.route('/')
-def hello_world() -> str:
-    return 'Hello World!'
-
-
-app.add_url_rule('/foo', None, bar)
+logging.warning('from app.__init__')
 
 if __name__ == '__main__':
-    app.run()
+    logging.warning('Starting from __name__ == __main__ in app.__init__')
+    bong.run()
